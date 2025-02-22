@@ -40,16 +40,17 @@ export default function RootLayout({
             disableTransitionOnChange
           >
          
-        <div className="min-h-screen">
-          <Navbar/>
-          <main className="px-4 sm:px-6 lg:px-8">
-            {children}
-          </main>
-        </div>
+         <SignedIn>
+              <div className="min-h-screen">
+                <Navbar />
+                <main className="px-4 sm:px-6 lg:px-8">{children}</main>
+              </div>
+         </SignedIn>
         <SignedOut>
           <RedirectToSignIn/>
         </SignedOut>
         </ThemeProvider>
+        {/* <Toaster /> */}
       </body>
     </html>
     </ConvexClerkProvider>
