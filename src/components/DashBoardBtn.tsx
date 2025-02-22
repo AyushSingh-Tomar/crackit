@@ -3,13 +3,12 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { LayoutDashboard } from "lucide-react";
-// import { useUserRole } from "@/hooks/useUserRole";
+import { useUserRole } from "@/hooks/useUserRole";
 
-function DasboardBtn() {
-  const isCandidate=false;
-  const isInterviewer=true;
+function DashboardBtn() {
+  const {isCandidate,isLoading}=useUserRole();
 
-  if (isCandidate ) return null;
+  if (isCandidate || isLoading ) return null;
 
   return (
     <Link href={"/dashboard"}>
@@ -20,4 +19,4 @@ function DasboardBtn() {
     </Link>
   );
 }
-export default DasboardBtn;
+export default DashboardBtn;
